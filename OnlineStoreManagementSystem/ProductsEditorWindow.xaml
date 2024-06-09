@@ -1,0 +1,58 @@
+﻿<Window x:Class="OnlineStoreManagementSystem.ProductsEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnlineStoreManagementSystem"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Редактор продуктов" Height="535" Width="904" WindowState="Maximized">
+    <Grid Background="#ffdadada">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="163*"/>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="64*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="136*"/>
+            <ColumnDefinition Width="142*"/>
+            <ColumnDefinition Width="170*"/>
+            <ColumnDefinition Width="170*"/>
+            <ColumnDefinition Width="170*"/>
+            <ColumnDefinition Width="136*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.ColumnSpan="6" Grid.RowSpan="7" CornerRadius="20" Background="Snow" Margin="133,0,133,0">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+        <DataGrid x:Name="ProductsGrid" Grid.ColumnSpan="6" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="ProductsGrid_SelectionChanged" Margin="133,0,133,0">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Изображение" Width="SizeToCells">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Path=PhotoProduct}" MaxWidth="100" MaxHeight="100"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Название" Binding="{Binding Path=NameProduct}"/>
+                <DataGridTextColumn Header="Цена (руб.)" Binding="{Binding Path=PriceProduct}"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Path=DescriptionProduct}"/>
+                <DataGridTextColumn Header="Категория" Binding="{Binding Path=CategoryProduct}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="YourImage" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Адрес изображения (Не обязательно)" FontSize="25" Margin="50,0,50,0"/>
+        <TextBox x:Name="YourNameProduct" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="4" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Название" FontSize="25" Margin="50,0,50,0"/>
+        <TextBox x:Name="YourPriceProduct" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="4" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Цена" FontSize="25" Margin="50,0,50,0"/>
+        <TextBox x:Name="YourDescriptionProduct" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="4" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Описание" FontSize="25" Margin="50,0,50,0"/>
+        <TextBox x:Name="YourCategoryProduct" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="4" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Категория" FontSize="25" Margin="50,0,50,0"/>
+        <Button x:Name="Back" Grid.Column="1" Grid.Row="6" Content="Назад" Margin="10,6,10,6" Click="Back_Click"/>
+        <Button x:Name="AddProduct" Grid.Column="2" Grid.Row="6" Content="Добавить" Margin="10,6,10,6" Background="#FF2CC343" BorderBrush="#FF208830" Click="AddProduct_Click"/>
+        <Button x:Name="DeleteProduct" Grid.Column="3" Grid.Row="6" Content="Удалить" Margin="10,6,10,6" Background="#FFDE0E2B" BorderBrush="#FF962030" Click="DeleteProduct_Click"/>
+        <Button x:Name="UpdateProduct" Grid.Column="4" Grid.Row="6" Content="Обновить" Margin="10,6,10,6" Background="#FF179DCA" BorderBrush="#FF177392" Click="UpdateProduct_Click"/>
+    </Grid>
+</Window>

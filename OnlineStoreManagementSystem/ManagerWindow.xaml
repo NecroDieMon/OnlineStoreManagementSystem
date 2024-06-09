@@ -1,0 +1,32 @@
+﻿<Window x:Class="OnlineStoreManagementSystem.ManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnlineStoreManagementSystem"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Окно менеджера" Height="475" Width="800" WindowState="Maximized">
+    <Grid Background="#ffdadada">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="109*"/>
+            <RowDefinition Height="88*"/>
+            <RowDefinition Height="88*"/>
+            <RowDefinition Height="88*"/>
+            <RowDefinition Height="109*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="111*"/>
+            <ColumnDefinition Width="553*"/>
+            <ColumnDefinition Width="111*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Background="Snow" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+        <Button x:Name="OpenReportsWindow" Grid.Column="1" Grid.Row="1" Content="Отчёты" Height="50" Margin="40 0 40 0 " Background="#FFE20F3F" BorderBrush="#FF9A1E3A" Click="OpenReportsWindow_Click"/>
+        <Button x:Name="OpenInformationWindow" Grid.Column="1" Grid.Row="2" FontSize="20" Height="50" Margin="40 0 40 0 " Content="Клиенты, заказы и товары" Background="#FF20CCA9" BorderBrush="#FF1A9078" Click="OpenInformationWindow_Click"/>
+        <Button x:Name="Back" Grid.Column="1" Grid.Row="3" FontSize="18" Height="50" Margin="40 0 40 0" Content="Назад" Background="#FF40BF42" BorderBrush="#FF5BBF40" Click="Back_Click"/>
+    </Grid>
+</Window>
